@@ -18,3 +18,6 @@ using the `nsys` commandline utility.
 > nsys stats <report name> --quiet
 trying to get appropriate number of threads/blocks failed for now.
 `-O3` seemed to do more, maxed out at 30% GPU usage.
+* Most of the time was spent in transferring data!
+* On an integrated GPU device with unified memory,
+    the performance was a magnitude better than the multithreaded result

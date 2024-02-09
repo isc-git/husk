@@ -80,7 +80,9 @@ int main() {
     }
 
     // add on GPU, with many blocks that have many threads
-    blocked_vector_add<<<10,256>>>(d_a, d_b, N, d_out);
+    int block_size = 256;
+    int num_blocks = (N + block_size - 1) / block_size; 
+    blocked_vector_add<<<num_blocks,block_size>>>(d_a, d_b, N, d_out);
 
     // copy outputs to host
     cudaMemcpy(out, d_out, sizeof(*d_out) * N, cudaMemcpyDeviceToHost);
@@ -106,7 +108,7 @@ int main() {
         cudaMemcpy(d_b, b, sizeof(*b) * N, cudaMemcpyHostToDevice);
 
         // add on GPU, with many blockst that have many threads
-        blocked_vector_add<<<10,256>>>(d_a, d_b, N, d_out);
+        blocked_vector_add<<<num_blocks,block_size>>>(d_a, d_b, N, d_out);
 
         // copy outputs to host
         cudaMemcpy(out, d_out, sizeof(*d_out) * N, cudaMemcpyDeviceToHost);
