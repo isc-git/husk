@@ -28,4 +28,6 @@ Transfer data between host and device with `cudaMemcpy`.
 - `blockDim.x`, number of threads in block. "size of block"
 - `blockIdx.x`, index of block with grid.
 - `gridDim.x`, number of blocks int the grid (i think?) "size of grid"
-Each SM consists of many parallel processors and can run concurrent blocks.
+
+- Each SM consists of many parallel processors and can run concurrent blocks.
+- Thread block size should be a multiple of 32, kernels issue instructions in "warps", 32 threads

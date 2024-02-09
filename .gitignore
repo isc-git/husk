@@ -4,3 +4,7 @@
 
 # image formats
 **/*.raw
+
+# nsys reporting
+**/*.sqlite
+**/*.nsys-rep
