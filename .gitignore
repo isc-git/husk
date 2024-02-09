@@ -1,0 +1,6 @@
+# Rust builds/artifacts
+**/target
+**/Cargo.lock
+
+# image formats
+**/*.raw
