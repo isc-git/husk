@@ -1,0 +1,9 @@
+[package]
+name = "image_manipilator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.79"
+cudarc = "0.10.0"
+image = { version = "0.24.8", default-features = false, features = ["tiff"] }
